@@ -1,0 +1,133 @@
+/* Import Tailwind's base, component, and utility styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base layer for global styles and CSS custom properties */
+@layer base {
+  /* Light theme color variables using HSL values for easy manipulation */
+  :root {
+    --background: 0 0% 100%;                    /* Pure white background */
+    --foreground: 222.2 84% 4.9%;              /* Very dark gray text */
+    --card: 0 0% 100%;                         /* White card background */
+    --card-foreground: 222.2 84% 4.9%;         /* Dark text on cards */
+    --popover: 0 0% 100%;                      /* White popover background */
+    --popover-foreground: 222.2 84% 4.9%;      /* Dark text on popovers */
+    --primary: 222.2 47.4% 11.2%;              /* Dark primary color */
+    --primary-foreground: 210 40% 98%;         /* Light text on primary */
+    --secondary: 210 40% 96%;                  /* Light gray secondary */
+    --secondary-foreground: 222.2 84% 4.9%;    /* Dark text on secondary */
+    --muted: 210 40% 96%;                      /* Light muted background */
+    --muted-foreground: 215.4 16.3% 46.9%;     /* Medium gray muted text */
+    --accent: 210 40% 96%;                     /* Light accent background */
+    --accent-foreground: 222.2 84% 4.9%;       /* Dark text on accent */
+    --destructive: 0 84.2% 60.2%;              /* Red destructive color */
+    --destructive-foreground: 210 40% 98%;     /* Light text on destructive */
+    --border: 214.3 31.8% 91.4%;               /* Light gray border */
+    --input: 214.3 31.8% 91.4%;                /* Light gray input background */
+    --ring: 222.2 84% 4.9%;                    /* Dark focus ring */
+    --radius: 0.5rem;                          /* Default border radius */
+  }
+
+  /* Dark theme color variables - same structure but different values */
+  .dark {
+    --background: 222.2 84% 4.9%;              /* Very dark background */
+    --foreground: 210 40% 98%;                 /* Light text */
+    --card: 222.2 84% 4.9%;                    /* Dark card background */
+    --card-foreground: 210 40% 98%;            /* Light text on cards */
+    --popover: 222.2 84% 4.9%;                 /* Dark popover background */
+    --popover-foreground: 210 40% 98%;         /* Light text on popovers */
+    --primary: 210 40% 98%;                    /* Light primary color */
+    --primary-foreground: 222.2 47.4% 11.2%;   /* Dark text on primary */
+    --secondary: 217.2 32.6% 17.5%;            /* Dark secondary */
+    --secondary-foreground: 210 40% 98%;       /* Light text on secondary */
+    --muted: 217.2 32.6% 17.5%;                /* Dark muted background */
+    --muted-foreground: 215 20.2% 65.1%;       /* Medium gray muted text */
+    --accent: 217.2 32.6% 17.5%;               /* Dark accent background */
+    --accent-foreground: 210 40% 98%;          /* Light text on accent */
+    --destructive: 0 62.8% 30.6%;              /* Dark red destructive */
+    --destructive-foreground: 210 40% 98%;     /* Light text on destructive */
+    --border: 217.2 32.6% 17.5%;               /* Dark border */
+    --input: 217.2 32.6% 17.5%;                /* Dark input background */
+    --ring: 212.7 26.8% 83.9%;                 /* Light focus ring */
+  }
+
+  /* Global typography settings */
+  html {
+    /* Use system fonts for better performance and native feel */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  /* Global body styles */
+  body {
+    margin: 0;                                 /* Remove default margins */
+    padding: 0;                                /* Remove default padding */
+    line-height: 1.6;                          /* Comfortable line height */
+    color: #374151;                            /* Dark gray text color */
+    background-color: #f9fafb;                 /* Light gray background */
+  }
+}
+
+/* Component layer for reusable component styles */
+@layer components {
+  /* Primary button styling */
+  .btn-primary {
+    @apply bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Secondary button styling */
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-50 text-gray-700 font-medium py-2 px-4 rounded-md border border-gray-300 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Input field styling */
+  .input-field {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent disabled:bg-gray-100 disabled:cursor-not-allowed;
+  }
+
+  /* Card component styling */
+  .card {
+    @apply bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-200;
+  }
+
+  /* Modal overlay styling */
+  .modal-overlay {
+    @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50;
+  }
+
+  /* Modal content styling */
+  .modal-content {
+    @apply bg-white rounded-lg max-w-md w-full p-6;
+  }
+}
+
+/* Utility layer for custom utility classes */
+@layer utilities {
+  /* Text truncation utility for limiting text to 3 lines */
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;                     /* Limit to 3 lines */
+    -webkit-box-orient: vertical;              /* Vertical text flow */
+    overflow: hidden;                          /* Hide overflow */
+  }
+
+  /* Aspect ratio utility for 16:9 video aspect ratio */
+  .aspect-video {
+    aspect-ratio: 16 / 9;                      /* 16:9 aspect ratio */
+  }
+
+  /* Custom spin animation utility */
+  .animate-spin {
+    animation: spin 1s linear infinite;        /* Continuous spinning */
+  }
+
+  /* Keyframes for spin animation */
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);                 /* Start at 0 degrees */
+    }
+    to {
+      transform: rotate(360deg);               /* End at 360 degrees */
+    }
+  }
+}
