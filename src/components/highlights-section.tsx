@@ -1,10 +1,11 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { type Highlight, createHighlight, fetchImageForHighlight } from "@/lib/api"
+// import { type Highlight, createHighlight, fetchImageForHighlight } from "@/lib/api"
+import { type Highlight, CreateHighlightData } from "@/types/highlight"
 import HighlightsGrid from "./highlights-grid"
-import CreateHighlightDialog from "./CreateHighlightDialog"
-import FloatingActionButton from "./FloatingActionButton"
+// import CreateHighlightDialog from "./CreateHighlightDialog"
+// import FloatingActionButton from "./FloatingActionButton"
 
 interface HighlightsSectionProps {
   highlights: Highlight[]
