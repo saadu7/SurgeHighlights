@@ -1,17 +1,14 @@
-// Mark this as a client component since we'll use React hooks
 "use client"
 
-// Import React hooks and our API functions
-import { useState, useEffect } from "react"                           // React hooks for state and effects
-// import { getHighlights, type Highlight } from "../../lib/api"
-import { type Highlight } from "../types/highlight"
-import { getMockHighlights } from "../lib/mock-data"          // Our API function and types
-import HighlightsGrid from "../components/highlights-grid"        // Main content component
+import { abrilFatface, passionOne } from "./layout"
+import { useState, useEffect } from "react"
+import type { Highlight, CreateHighlightRequest } from "@/types/highlight"
+import { fetchHighlights, createHighlight, fetchImageFromUnsplash } from "@/lib/api"
+import HighlightsGrid from "@/components/HighlightsGrid"
+import CreateHighlightModal from "@/components/CreateHighlightModal"
+import FloatingActionButton from "@/components/FloatingActionButton"
+import NameSignature from "@/components/NameSignature"
 
-/**
- * Home page component - the main entry point of our app
- * This component manages the global state and renders the main content
- */
 export default function Home() {
   const [highlights, setHighlights] = useState<Highlight[]>([])
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -63,7 +60,7 @@ export default function Home() {
         {/* Header Section */}
         <div className="mb-8 lg:mb-12">
           <p className="text-red-500 text-sm font-medium mb-2 tracking-wide uppercase">HIGHLIGHTS</p>
-          <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-xl lg:text-4xl font-bold text-gray-900 mb-4 font-abril-fatface">
             What are the special moments of your life?
           </h1>
           <p className="text-gray-600 text-lg max-w-2xl">
@@ -95,6 +92,7 @@ export default function Home() {
         onClose={() => setIsModalOpen(false)}
         onSubmit={handleCreateHighlight}
       />
+      <NameSignature />
     </main>
   )
 }

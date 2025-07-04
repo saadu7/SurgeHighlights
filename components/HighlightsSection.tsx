@@ -1,11 +1,11 @@
 "use client"
 
 import { useState, useEffect } from "react"
-// import { type Highlight, createHighlight, fetchImageForHighlight } from "@/lib/api"
-import { type Highlight, CreateHighlightData } from "@/types/highlight"
-import HighlightsGrid from "./highlights-grid"
-// import CreateHighlightDialog from "./CreateHighlightDialog"
-// import FloatingActionButton from "./FloatingActionButton"
+import { type Highlight, createHighlight, fetchImageForHighlight } from "@/src/lib/api"
+import HighlightsGrid from "./HighlightsGrid"
+import CreateHighlightDialog from "./CreateHighlightDialog"
+import FloatingActionButton from "./FloatingActionButton"
+import NameSignature from "./NameSignature"
 
 interface HighlightsSectionProps {
   highlights: Highlight[]
@@ -101,7 +101,7 @@ export default function HighlightsSection({ highlights, onHighlightsChange }: Hi
       {/* Header Section */}
       <header className="mb-12">
         <p className="text-red-500 text-sm font-medium mb-2 tracking-wide uppercase">HIGHLIGHTS</p>
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 font-abril-fatface">
           What are the special moments of your life?
         </h1>
         <p className="text-gray-600 text-lg max-w-2xl">
@@ -130,6 +130,7 @@ export default function HighlightsSection({ highlights, onHighlightsChange }: Hi
         onSubmit={handleCreateHighlight}
         isLoading={isCreating}
       />
+      {/* <NameSignature /> */}
     </div>
   )
 }
